@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>VUKIKA®</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: #ffffff;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* GENERIC */
+section {
+    min-height: 150vh;
+    padding: 8vw;
+}
+
+h1, h2 {
+    font-family: "Arial Black", Arial, sans-serif;
+    letter-spacing: -0.03em;
+}
+
+p {
+    max-width: 900px;
+    font-size: 1.3rem;
+    line-height: 1.9;
+    margin-top: 3rem;
+}
+
+/* LOGO */
+.logo-section {
+    min-height: 150vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 25vw;
+    font-family: "Arial Black", Arial, sans-serif;
+}
+
+.v { color:#0071e3 }
+.u { color:#d0021b }
+.k1{ color:#f5c400 }
+.i { color:#0071e3 }
+.k2{ color:#2ecc71 }
+.a { color:#d0021b }
+
+/* STICKY STORY */
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: center;
+}
+
+.story-media {
+    position: sticky;
+    top: 15vh;
+    height: 70vh;
+    perspective: 1200px;
+}
+
+.tilt {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+}
+
+.tilt img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TITLES */
+.hardware h2,
+.software h2,
+.ai h2 {
+    font-size: 7vw;
+}
+
+/* CONTACT */
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-box {
+    border: 6px solid #111;
+    padding: 6vw;
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-size: 6vw;
+    margin-bottom: 3vw;
+}
+
+.contact-box a {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 3vw;
+    color: #111;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<section class="logo-section">
+<div class="logo">
+<span class="v">V</span><span class="u">U</span><span class="k1">K</span><span class="i">I</span><span class="k2">K</span><span class="a">A</span>
+</div>
+</section>
+
+<!-- HARDWARE STORY -->
+<section class="hardware story">
+<div class="story-media">
+    <div class="tilt">
+        <img src="hero1.jpg">
+    </div>
+</div>
+<div>
+<h2>Hardware</h2>
+<p>
+VUKIKA® pruža napredne hardverske usluge fokusirane na optimizaciju,
+stabilnost i maksimalne performanse modernih računarskih sistema.
+</p>
+<p>
+Svaki detalj je optimizovan — termalni tokovi, energija i dugotrajnost
+u savremenom tehnološkom okruženju Beograda.
+</p>
+</div>
+</section>
+
+<!-- SOFTWARE STORY -->
+<section class="software story">
+<div class="story-media">
+    <div class="tilt">
+        <img src="hero2.jpg">
+    </div>
+</div>
+<div>
+<h2>Software</h2>
+<p>
+Moderni softverski sistemi, web arhitektura i sigurnost
+razvijeni su sa fokusom na skalabilnost i dugoročnu pouzdanost.
+</p>
+<p>
+Čist kod, stabilna infrastruktura i premium digitalno iskustvo.
+</p>
+</div>
+</section>
+
+<!-- AI -->
+<section class="ai">
+<h2>Artificial Intelligence</h2>
+<p>
+Veštačka inteligencija omogućava automatizaciju,
+analizu podataka i inteligentne digitalne procese nove generacije.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+<div class="contact-box">
+<h2>Kontakt</h2>
+<a href="mailto:vulika.technology@gmail.com">
+vulika.technology@gmail.com
+</a>
+</div>
+</section>
+
+<script>
+document.querySelectorAll(".tilt").forEach(card => {
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width) - 0.5) * 20;
+        const rotateX = ((y / rect.height) - 0.5) * -20;
+
+        card.style.transform = 
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
+});
+</script>
+
+</body>
+</html>
